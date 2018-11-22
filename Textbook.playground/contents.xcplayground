@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <playground requires-full-environment="false" version="6.0" target-platform="ios">
     <pages>
-        <page name="EnvironmentDev"/>
-        <page name="StateDev"/>
-        <page name="FlowDev"/>
-        <page name="LocaleDev"/>
-        <page name="PlaygroundValueDev"/>
-        <page name="UIKitHelpersDev"/>
+        <page name="Environment"/>
+        <page name="State"/>
+        <page name="Flow"/>
+        <page name="Locale"/>
+        <page name="PlaygroundValue"/>
+        <page name="UIKitHelpers"/>
         <page name="DatesList"/>
         <page name="DateDetail"/>
     </pages>
