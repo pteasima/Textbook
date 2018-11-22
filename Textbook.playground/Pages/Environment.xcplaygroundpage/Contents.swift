@@ -2,7 +2,7 @@ import Foundation
 import PlaygroundSupport
 public var _delimiter: Character = "…" //dont forget to overwrite this
 
-let repoName = "Devtools for iPad"
+let repoName = "Textbook"
 
 extension String {
     var escaped: String {
@@ -28,6 +28,8 @@ public struct Environment {
     public var now = { Date() }
     public var flow = Flow()
     public var locale = Locale()
+    public var database = Database()
+    public var currentUser: () -> User? = { nil }
 }
 
 public var environment = Environment()
