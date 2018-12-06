@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playground target-platform="ios" requires-full-environment="false" version="6.0">
+    <pages>
+        <page name="Environment"/>
+        <page name="State"/>
+        <page name="Locale"/>
+        <page name="PlaygroundValue"/>
+        <page name="UIKitHelpers"/>
+        <page name="Reset"/>
+        <page name="Rendering"/>
+        <page name="Proof of Uncountability of Reals"/>
+        <page name="UnitTests"/>
+        <page name="ViewModels"/>
+        <page name="md"/>
+        <page name="Reals_run"/>
+        <page name="Profile"/>
+    </pages>
+</playground>
