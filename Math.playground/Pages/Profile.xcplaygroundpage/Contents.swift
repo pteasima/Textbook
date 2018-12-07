@@ -3,9 +3,10 @@ extension NSObject: ReactiveExtensionsProvider {}
 extension UIView {
     @objc func handleTap() {
         print("tap")
-        state.modify {
-            $0.user = User(name: "him", grade: .one)
-            }
+        state.modify(concat(
+            mut(\.user.grade, .one),
+            mut(\.user.name, "him")
+        ))
     }
 }
 
@@ -39,7 +40,7 @@ let nameLabel = reactiveLabel
         set(\.frame, CGRect(origin:.zero, size: CGSize(width: 100, height: 100))),
         set(\.backgroundColor, .white)
     ))
-let grade = simpleLabel
+let grade = reactiveLabel
     .map(concat(
         set(\.frame, CGRect(origin:.zero, size: CGSize(width: 100, height: 100))),
         set(\.backgroundColor, .white)
@@ -49,7 +50,8 @@ let profile: Rendering<Property<User>, UIStackView> = stack([
     nameLabel.pullback {
         $0.map(get(\.name))
     },
-    grade.pullback(compose(get(\Grade.rawValue),get(\User.grade), get(\.value))),
+    grade
+    .pullback { $0.map(get(\User.grade.rawValue)) }
     ].map { $0.map { $0 }})
     .map(set(\.axis, .vertical))
 
