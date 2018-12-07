@@ -1,3 +1,4 @@
+import Foundation
 internal struct AssociationKey<Value> {
 	fileprivate let address: UnsafeRawPointer
 	fileprivate let `default`: Value!

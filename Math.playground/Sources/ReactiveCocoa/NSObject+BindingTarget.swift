@@ -1,4 +1,5 @@
-extension Reactive where Base: AnyObject {
+import Foundation
+extension Reactive where Base: NSObject {
 	/// Creates a binding target which uses the lifetime of the object, and 
 	/// weakly references the object so that the supplied `action` is triggered 
 	/// only if the object has not deinitialized.
@@ -20,7 +21,7 @@ extension Reactive where Base: AnyObject {
 }
 
 #if swift(>=3.2)
-extension Reactive where Base: AnyObject {
+extension Reactive where Base: NSObject {
 	/// Creates a binding target that writes to the object with the given key path  on a
 	/// `UIScheduler`.
 	///

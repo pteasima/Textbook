@@ -1,3 +1,4 @@
+import Foundation
 extension Selector {
 	/// `self` as a pointer. It is uniqued across instances, similar to
 	/// `StaticString`.
