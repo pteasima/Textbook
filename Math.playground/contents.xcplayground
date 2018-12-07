@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<playground target-platform="ios" requires-full-environment="false" version="6.0">
+<playground target-platform="ios" version="6.0" requires-full-environment="false">
     <pages>
         <page name="Environment"/>
         <page name="State"/>
@@ -14,5 +14,7 @@
         <page name="md"/>
         <page name="Reals_run"/>
         <page name="Profile"/>
+        <page name="Untitled Page"/>
+        <page name="Web"/>
     </pages>
 </playground>

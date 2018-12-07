@@ -1,5 +1,14 @@
 import UIKit
 extension NSObject: ReactiveExtensionsProvider {}
+extension UIView {
+    @objc func handleTap() {
+        print("tap")
+        state.modify {
+            $0.user = User(name: "him", grade: .one)
+            }
+    }
+}
+
 enum Grade: String {
     case one
     case two
@@ -12,15 +21,20 @@ struct User {
 struct State {
     var user: User
 }
-
+let state: MutableProperty<State> = .init(.init(user: .init(name: "me", grade: .two)))
 let reactiveLabel = Rendering<Property<String>, UILabel> { text in
     return with(UILabel()) { (label: inout UILabel) in
-        label.reactive[\.text] <~
-            MutableProperty("foo")
+        /*label.reactive[\.text] <~
+            MutableProperty("foo")*/
+        text.producer.startWithValues { [weak label] in label?.text = $0 }
     }
 } 
-
-let nameLabel = simpleLabel
+.map { (l: UILabel) -> UILabel in
+    l.addGestureRecognizer(UITapGestureRecognizer(target: l, action: #selector(UIView.handleTap)))
+    l.isUserInteractionEnabled = true
+        return l 
+}
+let nameLabel = reactiveLabel
     .map(concat(
         set(\.frame, CGRect(origin:.zero, size: CGSize(width: 100, height: 100))),
         set(\.backgroundColor, .white)
@@ -32,10 +46,15 @@ let grade = simpleLabel
     ))
 
 let profile: Rendering<Property<User>, UIStackView> = stack([
-    nameLabel.pullback(get(\.value.name)),
+    nameLabel.pullback {
+        $0.map(get(\.name))
+    },
     grade.pullback(compose(get(\Grade.rawValue),get(\User.grade), get(\.value))),
     ].map { $0.map { $0 }})
     .map(set(\.axis, .vertical))
 
 
-environment.setLiveView(profile.render(Property(initial: User(name: "me", grade: .one), then: SignalProducer.timer(interval: DispatchTimeInterval.seconds(1), on: QueueScheduler.main).map { _ in User(name: "him", grade: .two)})))
+//let state = MutableProperty(User(name: "me", grade: .one))
+environment.setLiveView(profile.render(state.map(get(\.user))))/*, then: SignalProducer.timer(interval: DispatchTimeInterval.seconds(5), on: QueueScheduler.main).map { _ in User(name: "him", grade: .two)})))*/
+
+
