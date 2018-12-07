@@ -4,7 +4,7 @@ extension UIView {
     @objc func handleTap() {
         print("tap")
         state.modify(concat(
-            mut(\.user.grade, .one),
+            mver(\.user.grade) { $0.toggle() },
             mut(\.user.name, "him")
         ))
     }
@@ -13,6 +13,13 @@ extension UIView {
 enum Grade: String {
     case one
     case two
+    
+    mutating func toggle() {
+        switch self {
+            case .one: self = .two
+            case .two: self = .one
+        }
+    }
 }
 
 struct User {
@@ -25,8 +32,8 @@ struct State {
 let state: MutableProperty<State> = .init(.init(user: .init(name: "me", grade: .two)))
 let reactiveLabel = Rendering<Property<String>, UILabel> { text in
     return with(UILabel()) { (label: inout UILabel) in
-        /*label.reactive[\.text] <~
-            MutableProperty("foo")*/
+        //crashes the playground
+        //label.reactive[\.text] <~ text.signal
         text.producer.startWithValues { [weak label] in label?.text = $0 }
     }
 } 
