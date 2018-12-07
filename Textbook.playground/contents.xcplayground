@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<playground requires-full-environment="false" target-platform="ios" version="6.0">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
     <pages>
-        <page name="Environment"/>
-        <page name="Model"/>
-        <page name="Database"/>
-        <page name="State"/>
-        <page name="Flow"/>
-        <page name="Locale"/>
-        <page name="PlaygroundValue"/>
-        <page name="UIKitHelpers"/>
-        <page name="UsersList"/>
-        <page name="DateDetail"/>
-        <page name="Reset"/>
-        <page name="Untitled Page"/>
+        <page name='Environment'/>
+        <page name='Model'/>
+        <page name='Database'/>
+        <page name='State'/>
+        <page name='Flow'/>
+        <page name='Locale'/>
+        <page name='PlaygroundValue'/>
+        <page name='UIKitHelpers'/>
+        <page name='UsersList'/>
+        <page name='DateDetail'/>
+        <page name='Reset'/>
+        <page name='Untitled Page'/>
     </pages>
 </playground>

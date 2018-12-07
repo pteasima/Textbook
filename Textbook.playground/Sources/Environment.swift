@@ -18,11 +18,11 @@ private func write(text: String, to file: String, in repo: String) -> String {
 }
 public struct Environment {
     public var savePage: (String) -> Void = { filename in
-        PlaygroundPage.current.assessmentStatus = .pass(message: write(
-            text: String(PlaygroundPage.current.text.prefix { $0 != _delimiter }),
-            to: filename,
-            in: repoName
-        ).link(named: "Save to \(filename)"))
+//        PlaygroundPage.current.assessmentStatus = .pass(message: write(
+//            text: String(PlaygroundPage.current.text.prefix { $0 != _delimiter }),
+//            to: filename,
+//            in: repoName
+//        ).link(named: "Save to \(filename)"))
     }
     public var setLiveView: (PlaygroundLiveViewable) -> Void = { PlaygroundPage.current.liveView = $0 }
     public var now = { Date() }
