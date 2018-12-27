@@ -29,5 +29,16 @@ public func stack<A>(_ views: [Rendering<A, UIView>]) -> Rendering<A, UIStackVie
 // - seeing if Combining can someh
 let twoLabels = stack([simpleLabel, simpleLabel].map { $0.map { $0 } })
 
+public func viewController<A>(rootView: Rendering<A, UIView>) -> Rendering<A, UIViewController> {
+    return rootView.map {
+        let vc = UIViewController()
+        vc.view.addSubview($0, constraints: .fillParent())
+        return vc
+    }
+}
+public func navigationController<A>(rootViewController: Rendering<A, UIViewController>) -> Rendering<A, UINavigationController> {
+    return rootViewController.map(UINavigationController.init(rootViewController:))
+}
+
 
 // The End

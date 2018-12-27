@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<playground target-platform="ios" requires-full-environment="false" version="6.0">
+<playground version="6.0" requires-full-environment="false" target-platform="ios">
     <pages>
+        <page name="Model"/>
         <page name="Environment"/>
-        <page name="State"/>
+        <page name="Database"/>
         <page name="Locale"/>
         <page name="PlaygroundValue"/>
         <page name="UIKitHelpers"/>
@@ -10,11 +11,8 @@
         <page name="Rendering"/>
         <page name="Proof of Uncountability of Reals"/>
         <page name="UnitTests"/>
-        <page name="ViewModels"/>
-        <page name="md"/>
+        <page name="StepSlowly"/>
         <page name="Reals_run"/>
         <page name="Profile"/>
-        <page name="Untitled Page"/>
-        <page name="Web"/>
     </pages>
 </playground>

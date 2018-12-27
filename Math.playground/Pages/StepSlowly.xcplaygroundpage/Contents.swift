@@ -37,7 +37,7 @@ func say(_ input: String) -> Void {
 }
 
 
-say("whaaa")
+say("whaaat")
 environment.setLiveView(UIViewController())
 environment.reactive[userConfirmed: \.savePage]("Test").startWithValues {
     $0

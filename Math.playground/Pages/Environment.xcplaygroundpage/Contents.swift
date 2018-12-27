@@ -29,6 +29,7 @@ public struct Environment {
     public var setLiveView: (PlaygroundLiveViewable) -> Void = { PlaygroundPage.current.liveView = $0 }
     public var now = { Date() }
     public var locale = Locale()
+    public var database = Database()
     public var ask: (String, [String], @escaping (Int) -> Void) -> Void = { question, answers, completion in
         let alert = with(UIAlertController(title: nil, message: question, preferredStyle: answers.count > 2 ? .actionSheet : .alert),
              { (alert: inout UIAlertController) in
@@ -49,7 +50,7 @@ public struct Environment {
 public var environment = Environment()
 // The End 🙈
 _delimiter = "🙈"
-environment.savePage("Environment.swift")
+environment.savePage("<#PageName#>.swift")
 
 
 
